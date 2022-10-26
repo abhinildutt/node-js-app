@@ -9,7 +9,7 @@ const rootDir = require('../util/path');
 const products = []
 
 router.get('/add-product', (req, res, next) => {
-    res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
+    res.render('add-product', {prods : products, docTile : 'Shop'});
 });
 
 router.post('/add-product', (req, res, next) => {
@@ -17,5 +17,5 @@ router.post('/add-product', (req, res, next) => {
     res.redirect('/');
 }) 
 
-exports.routes = routes;
+exports.routes = router;
 exports.products = products;
